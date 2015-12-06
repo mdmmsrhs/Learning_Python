@@ -1,0 +1,35 @@
+#!/bin/python
+# 28/11/2015 15:21:04 Richard Stephens
+
+"""
+A function to find a given char in a string, with optional arguments
+showing how to get around passing a reference to the function for a
+data object that doesn't exist until it is called, later on'
+
+"""
+def find(str, ch, start = 0, end="None"):
+    index = start
+    if end == "None":
+        end = len(str)
+    while index < end:
+        if str[index] == ch:
+            return index
+        index = index + 1
+    return -1
+
+print(find("apple","p",0,2))
+
+"""
+In the case where we add the argument "end" but want to give a default value as the end
+of the str, this presents a problem, because this would be given by end=len(str),
+but the length of the str is not evaluated when the function is defined, only
+when called, so the reference doesn't work. 
+
+Since we go with a default value when we send an empty argument to the function, we
+need to recreate this here.  But we can't reference len(str).  If we tell the function to
+see a lack of a value for end as a Null, and then tell the function to see null as end=
+len(str), this would have the same effect, so the argument becomes end = Null.  
+
+Python doesn't understand "Null", so we use "None" instead.
+
+"""
