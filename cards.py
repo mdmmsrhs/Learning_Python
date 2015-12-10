@@ -48,6 +48,25 @@ class Deck:
             j = random.randrange(i, nCards)
             self.cards[i], self.cards[j] = self.cards[j], self.cards[i]
 
+    def removeCard(self,card):
+        if card in self.cards:
+            self.cards.remove(card)
+            return True
+        else:
+            return False
+
+    def popCard(self):
+        # deal from the bottom of the deck
+        return self.cards.pop()
+
+    def dealCard(self):
+        # deal from the top of the deck
+        return self.cards.pop(0)
+
+    def isEmpty(self):
+        return (len(self.cards) == 0)
+
+
 
 def main():
     # threeOfClubs = Card(3,1)
@@ -71,8 +90,20 @@ def main():
     # print cmp(card4,card5)
 
     deck = Deck()
-    Deck.printDeck(deck)
-    print deck
+    for i in range(10):
+        Deck.shuffle(deck)
+
+    # Deck.printDeck(deck)
+    # print deck
+    # print deck.isEmpty()
+    # card8 = Card(2,6)
+    # print card8
+    # print(deck.removeCard(card8))
+    #
+    # print (Deck.dealCard(deck))
+    for i in range(0,5):
+        print(Deck.dealCard(deck))
+
 
 if __name__ == '__main__':
     main()
