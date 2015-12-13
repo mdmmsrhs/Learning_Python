@@ -1,6 +1,8 @@
 #!usr/bin/python
 
-class Hand(Deck):
+import cards
+
+class Hand(cards.Deck):
     def __init__(self, name=""):
         self.cards=[]
         self.name=name
