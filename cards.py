@@ -66,6 +66,13 @@ class Deck:
     def isEmpty(self):
         return (len(self.cards) == 0)
 
+    def deal(self,hands,nCards = 999):
+        nHands = len(hands)
+        for i in range(nCards):
+            if self.isEmpty(): break
+            card = self.popCard()
+            hand = hands[i % nHands]
+            hand.addCard(card)
 
 
 def main():
@@ -109,4 +116,3 @@ if __name__ == '__main__':
     main()
 
 #end
-
