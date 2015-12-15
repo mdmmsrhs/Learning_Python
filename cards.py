@@ -42,13 +42,13 @@ class Deck:
             print card
 
     def shuffle(self):
-        import random
+        from random import shuffle
 #        nCards = len(self.cards)
 #        for i in range(nCards):
 #           j = random.randrange(i, nCards)
 #            self.cards[i], self.cards[j] = self.cards[j], self.cards[i]
         """shuffle without a sequence call using a builtin function"""
-        random.shuffle(self.cards)
+        shuffle(self.cards)
 
     def removeCard(self,card):
         if card in self.cards:
