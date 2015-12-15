@@ -74,6 +74,13 @@ class Deck:
             hand = hands[i % nHands]
             hand.addCard(card)
 
+class Hand(Deck):
+    def __init__(self, name=""):
+        self.cards=[]
+        self.name=name
+
+    def addCard(self,card):
+        self.append(card)
 
 def main():
     # threeOfClubs = Card(3,1)
@@ -108,6 +115,7 @@ def main():
     # print(deck.removeCard(card8))
     #
     # print (Deck.dealCard(deck))
+    print "Here is your hand: "
     for i in range(0,5):
         print(Deck.dealCard(deck))
 
